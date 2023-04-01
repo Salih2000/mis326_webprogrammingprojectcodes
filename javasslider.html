@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Slide Show</title>
+    <style>
+      /* CSS styles for slideshow images */
+      .slideshow-image {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+      }
+      
+      /* CSS styles for active slideshow image */
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+  
+  <body onload="startSlideshow()">
+    <div id="slideshow">
+      <img class="slideshow-image active" src="image1.jpg">
+      <img class="slideshow-image" src="image2.jpg">
+      <img class="slideshow-image" src="image3.jpg">
+    </div>
+    
+    <script>
+      let slideIndex = 0;
+      let slideShowInterval;
+      
+      function startSlideshow() {
+        // set slideshow interval to switch images every 3 seconds
+        slideShowInterval = setInterval(nextSlide, 3000);
+      }
+      
+      function nextSlide() {
+        // hide current slide
+        const slides = document.querySelectorAll('.slideshow-image');
+        slides[slideIndex].classList.remove('active');
+        
+        // update slide index and wrap around if at end
+        slideIndex++;
+        if (slideIndex >= slides.length) {
+          slideIndex = 0;
+        }
+        
+        // show next slide
+        slides[slideIndex].classList.add('active');
+      }
+    </script>
+  </body>
+</html>
