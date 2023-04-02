@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Home Page</title>
+    <style>
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      img:first-child {
+        display: block;
+      }
+    </style>
+    <script>
+      function startSlideshow() {
+        // Get all the image elements in the document
+        const images = document.getElementsByTagName("img");
+        
+        let currentIndex = 0;
+        
+        // Set up a timer to rotate through the images
+        setInterval(() => {
+          // Hide the current image
+          images[currentIndex].style.display = "none";
+          
+          // Move to the next image
+          currentIndex = (currentIndex + 1) % images.length;
+          
+          // Show the next image
+          images[currentIndex].style.display = "block";
+        }, 3000); // rotate every 3 seconds
+      }
+    </script>
+  </head>
+  <body onload="startSlideshow()">
+    <img src="image1.jpg">
+    <img src="image2.jpg">
+    <img src="image3.jpg">
+  </body>
+</html>

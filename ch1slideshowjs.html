@@ -19,7 +19,6 @@
       }
     </style>
   </head>
-  
   <body onload="startSlideshow()">
     <div id="slideshow">
       <img class="slideshow-image active" src="image1.jpg">
@@ -32,8 +31,8 @@
       let slideShowInterval;
       
       function startSlideshow() {
-        // set slideshow interval to switch images every 3 seconds
-        slideShowInterval = setInterval(nextSlide, 3000);
+        // set slideshow interval to switch images every 1,2 seconds
+        slideShowInterval = setInterval(nextSlide, 1200);
       }
       
       function nextSlide() {
@@ -50,6 +49,6 @@
         // show next slide
         slides[slideIndex].classList.add('active');
       }
-    </script>
+    </script> 
   </body>
 </html>
