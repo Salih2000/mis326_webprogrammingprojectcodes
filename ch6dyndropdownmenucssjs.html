@@ -6,7 +6,7 @@
 		/* Dropdown button styles */
 		.dropbtn {
 			background-color: #4CAF50;
-			color: rgb(167, 51, 51);
+			color: white;
 			padding: 16px;
 			font-size: 16px;
 			border: none;
@@ -42,9 +42,10 @@
 	</style>
 </head>
 <body>
+
 	<div class="dropdown">
-		<button class="dropbtn" onmouseover="showDropdown()" onmouseout="hideDropdown()">Dropdown</button>
-		<div id="myDropdown" class="dropdown-content">
+		<button class="dropbtn">Dropdown</button>
+		<div class="dropdown-content">
 			<a href="#">Link 1</a>
 			<a href="#">Link 2</a>
 			<a href="#">Link 3</a>
@@ -52,13 +53,22 @@
 	</div>
 
 	<script>
-		function showDropdown() {
-			document.getElementById("myDropdown").style.display = "block";
-		}
+		/* Get the dropdown button */
+		var dropdown = document.getElementsByClassName("dropdown");
 
-		function hideDropdown() {
-			document.getElementById("myDropdown").style.display = "none";
+		/* Loop through all dropdown buttons to add the onclick event */
+		for (var i = 0; i < dropdown.length; i++) {
+			dropdown[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var dropdownContent = this.nextElementSibling;
+				if (dropdownContent.style.display === "block") {
+					dropdownContent.style.display = "none";
+				} else {
+					dropdownContent.style.display = "block";
+				}
+			});
 		}
 	</script>
+
 </body>
 </html>
