@@ -3,6 +3,9 @@
 <head>
 	<title>Image Rotation</title>
 	<style>
+	body{
+        background-color: rgb(243, 251, 253);
+      }
 		img {
 			max-width: 100%;
 			height: auto;
@@ -12,23 +15,16 @@
 <body>
 	<img id="image" src="image1.jpg">
 	<script>
-		// array of image sources
 		var images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
-		
-		// current image index
 		var currentIndex = 0;
-		
-		// select the image element
 		var imageElement = document.getElementById("image");
 		
-		// update image every 5 seconds
-		setInterval(function() {
-			// update image source
-			imageElement.src = images[currentIndex % images.length];
-			
-			// increment current index
-			currentIndex++;
-		}, 5000);
+		for (var i = 0; i < images.length; i++) {
+			setTimeout(function() {
+				imageElement.src = images[currentIndex % images.length];
+				currentIndex++;
+			}, i * 1000);
+		}
 	</script>
 </body>
 </html>
